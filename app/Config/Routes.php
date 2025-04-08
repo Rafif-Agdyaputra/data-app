@@ -1,0 +1,11 @@
+<?php
+
+use CodeIgniter\Router\RouteCollection;
+
+/**
+ * @var RouteCollection $routes
+ */
+$routes->get('/', 'Home::index');
+$routes->get('/user', 'User::index');
+$routes->post('/user/tambah', 'User::tambah');
+$routes->post('/user/delete/(:num)', 'User::delete/$1');
