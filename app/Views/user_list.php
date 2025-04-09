@@ -14,41 +14,39 @@
     </div>
 </form>
 
-<table class="table table-bordered mt-3">
-    <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Hobbies</th>
-            <th>Country</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="mt-3">
+    <div class="row">
         <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?= $user['name'] ?></td>
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['gender'] ?></td>
-                <td>
-                    <?php 
-                        $hobbyArray = json_decode($user['hobbies'], true); 
-                        echo is_array($hobbyArray) ? implode(', ', $hobbyArray) : '-';
-                    ?>
-                </td>
-                <td><?= $user['country'] ?></td>
-                <td><?= $user['status'] ? 'Active' : 'Inactive' ?></td>
-                <td>
-                    <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menhapus data ini?');" >
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $user['name'] ?></h5>
+                        <strong>Email:</strong> <?= $user['email'] ?><br>
+                        <button class="btn btn-link p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails<?= $user['id'] ?>" aria-expanded="false" aria-controls="collapseDetails<?= $user['id'] ?>">
+                            <i class="bi bi-eye"></i> Show Details
+                        </button>
+                        <div class="collapse" id="collapseDetails<?= $user['id'] ?>">
+                            <p class="card-text">
+                                <strong>Gender:</strong> <?= $user['gender'] ?><br>
+                                <strong>Hobbies:</strong> 
+                                <?php 
+                                    $hobbyArray = json_decode($user['hobbies'], true); 
+                                    echo is_array($hobbyArray) ? implode(', ', $hobbyArray) : '-';
+                                ?><br>
+                                <strong>Country:</strong> <?= $user['country'] ?><br>
+                                <strong>Status:</strong> <?= $user['status'] ? 'Active' : 'Inactive' ?><br>
+                            </p>
+                        </div>
+                        <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menghapus data ini?');">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         <?php endforeach; ?>
-    </tbody>
-</table>
+    </div>
+</div>
+
 
 <div id="userModal" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="userModalLabel">
     <div class="modal-dialog">
