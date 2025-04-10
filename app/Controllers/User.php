@@ -33,7 +33,6 @@ class User extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            log_message('error', 'Validasi gagal:', json_encode($validation->getError()));
             return redirect()->to('/user');
         }
 
@@ -53,6 +52,10 @@ class User extends BaseController
         return redirect()->to('/user');
     }
 
+
+    public function editPage($id) {
+        // Ada tambahan function
+    }
 
     public function edit($id) {
         // Hari kamis
