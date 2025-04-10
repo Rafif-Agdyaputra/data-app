@@ -37,9 +37,12 @@
                                 <strong>Status:</strong> <?= $user['status'] ? 'Active' : 'Inactive' ?><br>
                             </p>
                         </div>
-                        <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menghapus data ini?');">
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                        </form>
+                        <div class="col">
+                            <a class="btn btn-warning" href="<?= base_url('user/editPage/' . $user['id']) ?>">Edit</a>
+                            <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menghapus data ini?');">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,18 +76,18 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                    <label class="form-label">Hobi</label>
-                    <div>
-                        <div class="form-check">
-                            <input type="checkbox" name="hobbies[]" value="Membaca" class="form-check-input" id="hobbyMembaca">
-                            <label class="form-check-label" for="hobbyMembaca">Membaca</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="hobbies[]" value="Jalan-jalan" class="form-check-input" id="hobbyJalan">
-                            <label class="form-check-label" for="hobbyJalan">Jalan-jalan</label>
+                        <label class="form-label">Hobi</label>
+                        <div>
+                            <div class="form-check">
+                                <input type="checkbox" name="hobbies[]" value="Membaca" class="form-check-input" id="hobbyMembaca">
+                                <label class="form-check-label" for="hobbyMembaca">Membaca</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" name="hobbies[]" value="Jalan-jalan" class="form-check-input" id="hobbyJalan">
+                                <label class="form-check-label" for="hobbyJalan">Jalan-jalan</label>
+                            </div>
                         </div>
                     </div>
-                </div>
                     <div class="mb-3">
                         <label class="form-label">Country</label>
                         <select name="country" class="form-select">
