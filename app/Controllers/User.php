@@ -99,6 +99,7 @@ class User extends BaseController
 
     public function detail($id) {
         // Hari kamis
+        // code
     }
 
     public function delete($id) {
