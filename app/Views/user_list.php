@@ -37,10 +37,10 @@
                                 <strong>Status:</strong> <?= $user['status'] ? 'Active' : 'Inactive' ?><br>
                             </p>
                         </div>
-                        <div class="col">
+                        <div class="d-grid gap-2">
                             <a class="btn btn-warning" href="<?= base_url('user/editPage/' . $user['id']) ?>">Edit</a>
                             <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menghapus data ini?');">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="submit" class="btn btn-danger w-100">Hapus</button>
                             </form>
                             <a class="btn btn-info" href="<?= base_url('user/detail/' . $user['id']) ?>">Detail</a>
                         </div>
