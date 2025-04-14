@@ -42,7 +42,7 @@
                             <form action="<?= base_url('user/delete/' . $user['id']) ?>" method="post" onsubmit="return confirm('Apa yakin ingin menghapus data ini?');">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
-                            <a class="btn btn-info">Detail</a>
+                            <a class="btn btn-info" href="<?= base_url('user/detail/' . $user['id']) ?>">Detail</a>
                         </div>
                     </div>
                 </div>

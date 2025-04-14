@@ -98,8 +98,16 @@ class User extends BaseController
     }
 
     public function detail($id) {
-        // Hari kamis
-        // code
+        $model = new UserModel();
+
+        $user = $model->find($id);
+        if(!$user) {
+            return redirect()->to('/user');
+        }
+
+        $data['user'] = $user;
+
+        return view('detail_user', $data);
     }
 
     public function delete($id) {
