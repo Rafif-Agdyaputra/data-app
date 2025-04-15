@@ -10,6 +10,11 @@ class User extends BaseController
 {
     public function index()
     {
+
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
         $model = new UserModel();
         $search = $this->request->getGet('search');
 
@@ -120,5 +125,11 @@ class User extends BaseController
 
         $model->delete($id);
         return redirect()->to('/user');
+    }
+
+    public function logoutLogic() {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login');
     }
 }

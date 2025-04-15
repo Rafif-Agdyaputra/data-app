@@ -8,6 +8,10 @@
     Tambah Data User
 </button>
 
+<a class="btn btn-danger" href="<?= base_url('user/logout') ?>">
+    Logout
+</a>
+
 <form method="get" action="<?= base_url('user'); ?>" class="mt-2">
     <div class="input-group">
         <input type="text" name="search" class="form-control" placeholder="Cari data" />
